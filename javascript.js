@@ -1,22 +1,14 @@
-var words = ["Rock", "Paper", "Scisors"];
+//var words = ["Rock", "Paper", "Scisors"];
 
 //function computerPlay(arr) {
-//    return arr[Math.floor(Math.random() * words.length)];
+ //   return arr[Math.floor(Math.random() * words.length)];
 //}
 
-function computerPlay(arr) {
-    return arr[Math.floor(Math.random() * words.length)];
-}
-
-console.log(computerPlay(words));
+//console.log(computerPlay(words));
 
 function playRound(playerSelection, computerSelection) {
-    var playerNumber = [Math.floor(Math.random() * 3)];
-    var playerSelection = words[playerNumber];
-    console.log(playerSelection);
-    var computerNumber = [Math.floor(Math.random() * 3)];
-    var computerSelection = words[computerNumber]
-    console.log(computerSelection);
+    const messageToPlayer = `Computer chose ${computerSelection}, you chose ${playerSelection}`;
+    console.log(messageToPlayer);
     
     if (playerSelection === "Rock" && computerSelection === "Scisors") {
         console.log("You won! Rock beats Scisors!");
@@ -40,9 +32,23 @@ function playRound(playerSelection, computerSelection) {
  
 }
 
-console.log(playRound(words));
+function computerPlay() {
+    const randomNumber = Math.floor(Math.random()*3);
+    if (randomNumber ===0) {
+        return "Rock";
+    } else if (randomNumber === 1) {
+        return "Paper";
+    } else { 
+        return "Scissors";
+    }
+}
 
-const playerSelection = "Rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function playerPlay() {
+    const userInput = prompt("rock, paper, scissors: ");
+    return userInput;
+}
+
+console.log(playRound(playerPlay(), computerPlay()));
+
+
 
